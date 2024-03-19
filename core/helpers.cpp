@@ -77,7 +77,7 @@ const PathNamePair &GetProcBinary()
 {
     auto get_procbin = []
     {
-#if !defined(ALSOFT_UWP)
+#if defined(ALSOFT_UWP)
         DWORD pathlen{256};
         auto fullpath = std::wstring(pathlen, L'\0');
         DWORD len{GetModuleFileNameW(nullptr, fullpath.data(), pathlen)};
